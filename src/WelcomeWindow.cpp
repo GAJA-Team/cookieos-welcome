@@ -188,13 +188,13 @@ QWidget* WelcomeWindow::buildLinksPanel()
 {
     auto *panel = new PanelWidget("CookieOS online", Th::ACCENT, "2 links");
 
-    auto *btnBlog = linkBtn("📝", "Blog CookieOS", "Aktualności, poradniki i newsy", Th::ACCENT);
+    auto *btnBlog = linkBtn("📝", "CookieOS Blog", "Aktualności, poradniki i newsy", Th::ACCENT);
     connect(btnBlog, &QPushButton::clicked, []{ QDesktopServices::openUrl(QUrl("https://gaja-team.github.io/CookieOS/blog")); });
     panel->bodyLayout->addWidget(btnBlog);
 
     panel->bodyLayout->addSpacing(8);
 
-    auto *btnHome = linkBtn("🌐", "Strona główna", "gaja-team.github.io/CookieOS", Th::BLUE);
+    auto *btnHome = linkBtn("🌐", "CookieOS Website", "gaja-team.github.io/CookieOS", Th::BLUE);
     connect(btnHome, &QPushButton::clicked, []{ QDesktopServices::openUrl(QUrl("https://gaja-team.github.io/CookieOS")); });
     panel->bodyLayout->addWidget(btnHome);
 
