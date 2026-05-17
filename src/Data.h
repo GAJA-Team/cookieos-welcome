@@ -8,11 +8,8 @@ struct AppItem       { QString icon, name, desc, color; };
 inline QList<ChangelogItem> changelogData()
 {
     return {
-        {"add",   "Dodano wiele aplikacji",             "1.4.2 · kernel"},
-        {"fix",   "Naprawiono błąd zawieszania przy starcie SDDM", "1.4.1 · display"},
-        {"perf",  "Zoptymalizowano czas uruchamiania o 31%",        "1.4.1 · boot"},
-        {"add",   "Wbudowany kreator instalacji cookie-setup",      "1.4.0 · installer"},
-        {"break", "Zmieniono ścieżkę konfiguracji na /etc/cookie/","1.4.0 · breaking"},
+        {"add",   "Add in OOBE mate & cinnamon",             "1.0.1 · OOBE"},
+        {"fix",   "Fix the cookieos-welcome", "1.0.1 · welcome"},
     };
 }
 

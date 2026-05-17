@@ -31,7 +31,7 @@ static QPushButton* linkBtn(const QString &icon, const QString &label,
         "QPushButton { background:%1; border:1px solid %2; border-radius:10px; padding:0; }"
         "QPushButton:hover { border-color:%3; background:#1e1e26; }"
         "QPushButton:pressed { background:%4; }")
-        .arg(Th::BG3, Th::BORDER, accentColor, Th::BG));
+    .arg(Th::BG3, Th::BORDER, accentColor, Th::BG));
 
     auto *lay = new QHBoxLayout(btn);
     lay->setContentsMargins(16,0,16,0);
@@ -175,8 +175,8 @@ QWidget* WelcomeWindow::buildHeader()
     auto *rcol = new QVBoxLayout; rcol->setSpacing(5); rcol->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
     m_version = new QLabel("v—"); m_version->setAlignment(Qt::AlignCenter);
     m_version->setStyleSheet(QString("background:%1; border:1px solid %2; border-radius:12px;"
-        "padding:3px 14px; font-family:'JetBrains Mono',monospace; font-size:8pt; color:%3;")
-        .arg(Th::BG3, Th::BORDER, Th::ACCENT));
+    "padding:3px 14px; font-family:'JetBrains Mono',monospace; font-size:8pt; color:%3;")
+    .arg(Th::BG3, Th::BORDER, Th::ACCENT));
     rcol->addWidget(m_version, 0, Qt::AlignRight);
     m_clock = Th::mono("", Th::MUTED, 8); m_clock->setAlignment(Qt::AlignRight);
     rcol->addWidget(m_clock, 0, Qt::AlignRight);
@@ -188,7 +188,7 @@ QWidget* WelcomeWindow::buildLinksPanel()
 {
     auto *panel = new PanelWidget("CookieOS online", Th::ACCENT, "2 links");
 
-    auto *btnBlog = linkBtn("📝", "CookieOS Blog", "Aktualności, poradniki i newsy", Th::ACCENT);
+    auto *btnBlog = linkBtn("📝", "CookieOS Blog", "", Th::ACCENT);
     connect(btnBlog, &QPushButton::clicked, []{ QDesktopServices::openUrl(QUrl("https://gaja-team.github.io/CookieOS/blog")); });
     panel->bodyLayout->addWidget(btnBlog);
 
@@ -233,7 +233,7 @@ QWidget* WelcomeWindow::buildAppsPanel()
     for (auto &app : apps) {
         auto *tile = new QFrame; tile->setObjectName("AppTile"); tile->setFixedHeight(80);
         tile->setStyleSheet(QString("QFrame#AppTile { background:%1; border:1px solid %2; border-radius:8px; }"
-            "QFrame#AppTile:hover { border-color:%3; background:#1e1e24; }").arg(Th::BG3, Th::BORDER, Th::ACCENT));
+        "QFrame#AppTile:hover { border-color:%3; background:#1e1e24; }").arg(Th::BG3, Th::BORDER, Th::ACCENT));
         tile->setCursor(Qt::PointingHandCursor);
         auto *tl = new QVBoxLayout(tile); tl->setContentsMargins(4,7,4,7); tl->setSpacing(3); tl->setAlignment(Qt::AlignCenter);
         auto *ico = new QLabel(app.icon); ico->setAlignment(Qt::AlignCenter); ico->setFixedSize(32,32);
@@ -264,7 +264,7 @@ QWidget* WelcomeWindow::buildSysPanel()
         row->addWidget(Th::mono(key, Th::MUTED, 8)); row->addStretch();
         ref = new QLabel("—");
         ref->setStyleSheet(QString("font-family:'JetBrains Mono',monospace; font-size:9pt;"
-            "font-weight:600; color:%1; background:transparent;").arg(initColor));
+        "font-weight:600; color:%1; background:transparent;").arg(initColor));
         row->addWidget(ref);
         leftCol->addLayout(row);
         leftCol->addWidget(Th::hLine());
@@ -355,14 +355,14 @@ QWidget* WelcomeWindow::buildFooter()
     lay->addWidget(copy); lay->addStretch();
     auto *chk = new QCheckBox("Don't show at startup");
     chk->setStyleSheet(QString("QCheckBox { color:%1; font-size:9pt; spacing:6px; }"
-        "QCheckBox::indicator { width:13px; height:13px; border:1px solid %2; border-radius:3px; background:%3; }"
-        "QCheckBox::indicator:checked { background:%4; border-color:%4; }").arg(Th::MUTED, Th::BORDER, Th::BG3, Th::ACCENT));
+    "QCheckBox::indicator { width:13px; height:13px; border:1px solid %2; border-radius:3px; background:%3; }"
+    "QCheckBox::indicator:checked { background:%4; border-color:%4; }").arg(Th::MUTED, Th::BORDER, Th::BG3, Th::ACCENT));
     lay->addWidget(chk);
     auto *btn = new QPushButton("  Close  ");
     btn->setStyleSheet(QString("QPushButton { background:%1; border:1px solid %2; color:%3;"
-        "font-family:'Syne',sans-serif; font-size:9pt; font-weight:700; padding:6px 18px; border-radius:6px; }"
-        "QPushButton:hover { border-color:%4; color:%4; background:%1; }"
-        "QPushButton:pressed { background:%5; }").arg(Th::BG3, Th::BORDER, Th::TEXT, Th::ACCENT, Th::BG));
+    "font-family:'Syne',sans-serif; font-size:9pt; font-weight:700; padding:6px 18px; border-radius:6px; }"
+    "QPushButton:hover { border-color:%4; color:%4; background:%1; }"
+    "QPushButton:pressed { background:%5; }").arg(Th::BG3, Th::BORDER, Th::TEXT, Th::ACCENT, Th::BG));
     connect(btn, &QPushButton::clicked, this, &QMainWindow::close);
     lay->addWidget(btn);
     return w;
